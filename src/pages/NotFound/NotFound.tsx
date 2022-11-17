@@ -17,7 +17,7 @@ export const NotFound: React.FC = () => {
             ? <p>{error}</p>
             : <p>Page not found</p>
           }
-          <Link className='link' to='/alpha-test/'>Go Home</Link>
+          <Link className='link' to='/'>Go Home</Link>
         </div>
       </div>
     </main>

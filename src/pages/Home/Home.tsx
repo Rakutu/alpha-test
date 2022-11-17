@@ -35,7 +35,7 @@ export const Home: React.FC = () => {
   const handleLike = useCallback((id: number) => dispatch(likeUser({ id })), []);
   const handleDelete = useCallback((id: number) => dispatch(deleteUser({ id })), []);
 
-  if (error && status === 'rejected') navigate('/alpha-test/not-found');
+  if (error && status === 'rejected') navigate('/not-found');
 
   return (
     <main>

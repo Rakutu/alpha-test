@@ -22,7 +22,7 @@ export const UserItem: React.FC<Props> = memo(({ user, onLike, onDelete }) => (
       <div>
         <h3 className='user__name'>{user.name}</h3>
         <p>{user.designation}</p>
-        <Link className='link' to={`/alpha-test/users/${user.id}`}>Look profile</Link>
+        <Link className='link' to={`/users/${user.id}`}>Look profile</Link>
         <div className='user__rating'>
           <FaStar/>
           <span>{user.rating}</span>
