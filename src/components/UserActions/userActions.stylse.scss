@@ -1,0 +1,27 @@
+.user__actions {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+
+  & button {
+    padding: 0;
+    border: none;
+    background: transparent;
+    outline: none;
+    cursor: pointer;
+
+    &:first-child {
+      margin-right: 15px;
+    }
+
+    &:focus > svg,
+    &:hover > svg {
+      fill: rgba(255, 0, 0, 0.5);
+    }
+
+    & > svg {
+      width: 20px;
+      height: 20px;
+    }
+  }
+}
