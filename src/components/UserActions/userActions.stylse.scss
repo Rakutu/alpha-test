@@ -14,7 +14,9 @@
       margin-right: 15px;
     }
 
-    &:focus > svg,
+    &:focus > svg {
+      fill: rgba(150, 0, 0, 1)
+    }
     &:hover > svg {
       fill: rgba(255, 0, 0, 0.5);
     }

@@ -10,9 +10,9 @@ export const App: React.FC = () => (
   <Provider store={store}>
     <BrowserRouter>
       <Routes>
-        <Route index path='/' element={<Home/>}/>
-        <Route path='/users/:id' element={<UserProfile/>}/>
-        <Route path='/not-found' element={<NotFound/>}/>
+        <Route index path='/alpha-test' element={<Home/>}/>
+        <Route path='/alpha-test/users/:id' element={<UserProfile/>}/>
+        <Route path='/alpha-test/not-found' element={<NotFound/>}/>
         <Route path='/*' element={<NotFound/>}/>
       </Routes>
     </BrowserRouter>

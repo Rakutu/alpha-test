@@ -1,4 +1,3 @@
-import React, { memo } from 'react';
 import './switcher.styles.scss';
 
 
@@ -8,7 +7,7 @@ interface Props {
   onSwitch: () => void;
 }
 
-export const Switcher: React.FC<Props> = memo(({ checked, label, onSwitch }) => (
+export const Switcher: React.FC<Props> = ({ checked, label, onSwitch }) => (
     <div className='root'>
       <label className='switch'>
         <input type='checkbox' checked={checked} onChange={onSwitch}/>
@@ -17,4 +16,3 @@ export const Switcher: React.FC<Props> = memo(({ checked, label, onSwitch }) => 
       {label && <span>{label}</span>}
     </div>
   )
-);
