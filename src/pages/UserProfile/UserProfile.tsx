@@ -21,11 +21,11 @@ export const UserProfile: React.FC = () => {
   const handleLike = (id: number) => dispatch(likeUser({ id }));
   const handleDelete = (id: number) => {
     dispatch(deleteUser({ id }));
-    navigate('alpha-test/');
+    navigate('/alpha-test');
   };
 
   useEffect(() => {
-    if (!user) navigate('alpha-test/not-found');
+    if (!user) navigate('/alpha-test/not-found');
   }, [ user ]);
 
   return (
