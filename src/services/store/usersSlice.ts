@@ -1,7 +1,7 @@
-import { createSlice, createAsyncThunk, PayloadAction, CaseReducer, Action } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction, CaseReducer } from '@reduxjs/toolkit';
 import { User } from '../../domain';
-import { fetchUsers } from '../api/fetchUsers';
 import { setUsersToLs } from '../utils/usersLS';
+import { fetchUsers } from './asyncActions';
 
 
 interface State {
@@ -59,6 +59,13 @@ const usersSlice = createSlice({
     builder
       .addCase(fetchUsers.fulfilled, (state, action) => {
         state.status = 'fulfilled';
+        if (!action.payload) {
+          state.status = 'rejected';
+          state.error = 'users not found';
+
+          return;
+        }
+
         state.users = action.payload;
       })
       .addCase(fetchUsers.rejected, setError)

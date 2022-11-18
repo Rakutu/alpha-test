@@ -2,7 +2,7 @@ import React, { useCallback, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { likeUser, toggleLiked, deleteUser } from '../../services/store';
 import { useAppDispatch, useAppSelector } from '../../services/hooks';
-import { fetchUsers } from '../../services/api/fetchUsers';
+import { fetchUsers } from '../../services/store';
 import { Header } from '../../components/Header';
 import { Switcher } from '../../components/Switcher';
 import { Spiner } from '../../components/Spiner';
@@ -20,22 +20,20 @@ export const Home: React.FC = () => {
   } = useAppSelector(({ users }) => users);
 
   useEffect(() => {
-    dispatch(fetchUsers());
+    if (users.length === 0) {
+      dispatch(fetchUsers());
+    }
   }, [])
 
   const usersForList = showLiked
     ? users.filter(user => user.liked)
     : users;
 
-  const handleSwitch = useCallback(
-    () => dispatch(toggleLiked()),
-    [],
-  );
-
+  const handleSwitch = useCallback(() => dispatch(toggleLiked()), [],);
   const handleLike = useCallback((id: number) => dispatch(likeUser({ id })), []);
   const handleDelete = useCallback((id: number) => dispatch(deleteUser({ id })), []);
 
-  if (error && status === 'rejected') navigate('/alpha-test/not-found');
+  if (error && status === 'rejected') navigate('/not-found');
 
   return (
     <main>

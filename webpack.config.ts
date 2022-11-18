@@ -7,6 +7,7 @@ module.exports = () => ({
     output: {
       filename: 'main.js',
       path: path.resolve(__dirname, 'docs'),
+      publicPath: '/alpha-test',
     },
     module: {
       rules: [
@@ -31,6 +32,7 @@ module.exports = () => ({
     devServer: {
       hot: true,
       port: 3000,
+      historyApiFallback: true,
     },
     plugins: [
       new HtmlWebpackPlugin({

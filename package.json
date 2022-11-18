@@ -4,7 +4,7 @@
   "description": "",
   "main": "src/index.ts",
   "scripts": {
-    "start": "npx cross-env webpack serve --mode=development",
+    "start": "npx webpack serve --mode=development",
     "build": "webpack --mode=production"
   },
   "repository": {
@@ -16,7 +16,7 @@
   "bugs": {
     "url": "https://github.com/Rakutu/alpha-test/issues"
   },
-  "homepage": "https://github.com/Rakutu/alpha-test#readme",
+  "homepage": "https://github.com/Rakutu/alpha-test",
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.0",
     "react": "^18.2.0",

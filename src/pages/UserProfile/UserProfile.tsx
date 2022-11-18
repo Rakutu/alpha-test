@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
-import { deleteUser, likeUser } from '../../services/store';
+import { deleteUser, likeUser, fetchUsers } from '../../services/store';
 import { useAppDispatch, useAppSelector } from '../../services/hooks';
 import { Header } from '../../components/Header';
 import { UserActions } from '../../components/UserActions';
@@ -21,12 +21,14 @@ export const UserProfile: React.FC = () => {
   const handleLike = (id: number) => dispatch(likeUser({ id }));
   const handleDelete = (id: number) => {
     dispatch(deleteUser({ id }));
-    navigate('/alpha-test');
+    navigate('/');
   };
 
   useEffect(() => {
-    if (!user) navigate('/alpha-test/not-found');
-  }, [ user ]);
+    if (users.length === 0) {
+      dispatch(fetchUsers());
+    }
+  }, [ users ]);
 
   return (
     <>
@@ -34,7 +36,7 @@ export const UserProfile: React.FC = () => {
         <main>
           <Header/>
           <div className='container'>
-            <img src={user.avatar} alt={user.name}/>
+            <img className='userProfile__img' src={user.avatar} alt={user.name}/>
             <div className='userProfile__actions-block'>
               <UserActions
                 liked={user.liked}
@@ -48,7 +50,7 @@ export const UserProfile: React.FC = () => {
             <p><b>location:</b> {user.location}</p>
             <p><b>status:</b> {user.message}</p>
             <p><b>description:</b> {user.lorem}</p>
-            <Link className='link' to='/alpha-test'>Back</Link>
+            <Link className='link' to='/'>Back</Link>
           </div>
         </main>
       )}
