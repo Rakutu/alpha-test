@@ -11,14 +11,23 @@ interface Props {
 }
 
 export const UsersList: React.FC<Props> = ({ users, onLike, onDelete }) => (
-  <ul className='users__list'>
-    {users.map(user => (
-      <UserItem
-        key={user.id}
-        user={user}
-        onLike={onLike}
-        onDelete={onDelete}
-      />
-    ))}
-  </ul>
+  <>
+    {users.length > 0 && (
+      <ul className='users__list'>
+        {users.map(user => (
+          <UserItem
+            key={user.id}
+            user={user}
+            onLike={onLike}
+            onDelete={onDelete}
+          />
+        ))}
+      </ul>
+    )}
+    {users.length === 0 && (
+      <div>
+        <p>There are not liked users at the moment</p>
+      </div>
+    )}
+  </>
 )

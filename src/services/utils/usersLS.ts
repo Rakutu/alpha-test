@@ -7,6 +7,8 @@ type SetUsersToLs = (users: User[]) => void;
 
 type GetUsersFromLs = () => User[] | undefined;
 
+type DeleteUsersFromLs = () => void;
+
 export const setUsersToLs: SetUsersToLs = (users) => {
   localStorage.setItem(USERS_KEY, JSON.stringify(users));
 };
@@ -22,3 +24,5 @@ export const getUsersFromLs: GetUsersFromLs = () => {
     throw error;
   }
 };
+
+export const deleteUsersFromLs: DeleteUsersFromLs = () => localStorage.removeItem(USERS_KEY);

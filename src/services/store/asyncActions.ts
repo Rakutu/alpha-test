@@ -1,5 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { getUsersFromLs, setUsersToLs } from '../utils/usersLS';
+import { deleteUsersFromLs, getUsersFromLs, setUsersToLs } from '../utils/usersLS';
 import { getUsers } from '../api/getUsers';
 
 
@@ -8,7 +8,9 @@ export const fetchUsers = createAsyncThunk(
   async (_, { rejectWithValue }) => {
     try {
       const usersFromLs = getUsersFromLs();
-      if (usersFromLs) return usersFromLs;
+
+      if (usersFromLs && usersFromLs.length > 0) return usersFromLs;
+      if (usersFromLs && usersFromLs.length === 0) deleteUsersFromLs();
 
       const users = await getUsers();
 
