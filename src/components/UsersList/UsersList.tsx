@@ -11,14 +11,14 @@ interface Props {
 }
 
 export const UsersList: React.FC<Props> = ({ users, onLike, onDelete }) => (
-    <ul className='users__list'>
-      {users.map(user => (
-        <UserItem
-          key={user.id}
-          user={user}
-          onLike={onLike}
-          onDelete={onDelete}
-        />
-      ))}
-    </ul>
-  )
+  <ul className='users__list'>
+    {users.map(user => (
+      <UserItem
+        key={user.id}
+        user={user}
+        onLike={onLike}
+        onDelete={onDelete}
+      />
+    ))}
+  </ul>
+)

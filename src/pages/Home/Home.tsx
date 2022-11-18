@@ -5,7 +5,7 @@ import { useAppDispatch, useAppSelector } from '../../services/hooks';
 import { fetchUsers } from '../../services/store';
 import { Header } from '../../components/Header';
 import { Switcher } from '../../components/Switcher';
-import { Spiner } from '../../components/Spiner';
+import { Spinner } from '../../components/Spinner';
 import { UsersList } from '../../components/UsersList';
 
 
@@ -45,7 +45,7 @@ export const Home: React.FC = () => {
           onSwitch={handleSwitch}
         />
         {status === 'pending'
-          ? <Spiner/>
+          ? <Spinner/>
           : (
             <UsersList
               users={usersForList}

@@ -1,4 +1,4 @@
-# Alpha  bank test exersize
+# Alpha  bank test exercise
 
 ### for start
 
@@ -6,4 +6,6 @@
     npm ci
     npm start
 ```
+and open [http://localhost:3000/alpha-test](http://localhost:3000/alpha-test)
+
 

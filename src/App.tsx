@@ -6,7 +6,7 @@ import { NotFound } from './pages/NotFound';
 import { store } from './services/store';
 
 
-export const App: React.FC = () => (
+export const App = () => (
   <HashRouter>
     <Provider store={store}>
       <Routes>

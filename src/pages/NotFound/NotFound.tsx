@@ -4,7 +4,7 @@ import { Header } from '../../components/Header';
 import './notFound.styles.scss';
 
 
-export const NotFound: React.FC = () => {
+export const NotFound = () => {
   const { error } = useAppSelector(({ users }) => users);
 
   return (

@@ -1,7 +1,7 @@
 import './header.styles.scss';
 
 
-export const Header: React.FC = () => (
+export const Header = () => (
   <header className='header'>
     <div className='container'>
       <a href='/' className='header__title'>

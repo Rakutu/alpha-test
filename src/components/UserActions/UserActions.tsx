@@ -1,3 +1,4 @@
+import React from 'react';
 import { FaHeart, FaRegHeart, FaRegTrashAlt } from 'react-icons/fa';
 import './userActions.stylse.scss';
 
